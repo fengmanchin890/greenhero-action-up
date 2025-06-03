@@ -272,7 +272,7 @@ const AIAnalysis: React.FC<AIAnalysisProps> = ({ onTaskComplete }) => {
               <div className="text-sm text-gray-600 space-y-1">
                 <p>• AI 模型：MobileNet V3 + TensorFlow Lite</p>
                 <p>• 訓練數據：10萬+ 台灣在地餐點照片</p>
-                <p>• 肉類偵測準確率：>95%</p>
+                <p>• 肉類偵測準確率：{'>'}95%</p>
                 <p>• 處理時間：平均 2-3 秒</p>
               </div>
             </CardContent>
