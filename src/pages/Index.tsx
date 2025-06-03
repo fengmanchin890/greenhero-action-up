@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import AIAnalysis from '@/components/AIAnalysis';
 import { 
   Leaf, 
   Coins, 
@@ -21,7 +21,9 @@ import {
   Calendar,
   Award,
   TrendingUp,
-  ShoppingCart
+  ShoppingCart,
+  Brain,
+  Sparkles
 } from 'lucide-react';
 
 interface Task {
@@ -207,10 +209,17 @@ const Index = () => {
       {/* Main Content */}
       <div className="max-w-6xl mx-auto p-6">
         <Tabs defaultValue="tasks" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 bg-white shadow-md">
+          <TabsList className="grid w-full grid-cols-5 bg-white shadow-md">
             <TabsTrigger value="tasks" className="flex items-center space-x-2">
               <Target className="w-4 h-4" />
               <span>每日任務</span>
+            </TabsTrigger>
+            <TabsTrigger value="ai-analysis" className="flex items-center space-x-2">
+              <Brain className="w-4 h-4" />
+              <span>AI 分析</span>
+              <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs">
+                New
+              </Badge>
             </TabsTrigger>
             <TabsTrigger value="achievements" className="flex items-center space-x-2">
               <Trophy className="w-4 h-4" />
@@ -279,6 +288,11 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
+          </TabsContent>
+
+          {/* AI Analysis Tab */}
+          <TabsContent value="ai-analysis" className="space-y-6">
+            <AIAnalysis onTaskComplete={completeTask} />
           </TabsContent>
 
           {/* Achievements Tab */}
